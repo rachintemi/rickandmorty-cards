@@ -1,16 +1,32 @@
-import { useQuery } from "@apollo/client";
+import { Stack, Typography } from "@mui/material";
 import logoText from "../../src/assets/images/logo-text.png";
-import { GET_CHARACTERS } from "../graphql/query/characters";
+import useLoadCharacters from "../hooks/useLoadCharacters";
+import PaginationCommon from "../components/Commons/Pagination";
 import CardsContainer from "../components/Profiles/CardsContainer";
+import { useState } from "react";
 
 const HomePage = () => {
-  const { data } = useQuery(GET_CHARACTERS);
+  const [page, setPage] = useState(1);
+
+  const { items, infos, loading } = useLoadCharacters(page);
+
+  const handleChange = (event: React.ChangeEvent<unknown>, value: number) => {
+    setPage(value);
+  };
+
   return (
     <>
       <section className="banner">
         <img src={logoText} alt="Rick and morty logo" />
       </section>
-      <CardsContainer characters={data?.characters} />
+      <Stack spacing={2} alignItems="center" className="pagination">
+        <Typography>Page: {page}</Typography>
+        <PaginationCommon
+          count={infos?.pages as number}
+          onChange={handleChange}
+        />
+      </Stack>
+      <CardsContainer characters={items} loading={loading} />
     </>
   );
 };

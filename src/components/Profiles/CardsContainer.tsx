@@ -1,18 +1,57 @@
-import { Box } from "@mui/material";
-import { Characters } from "../../__generated__/graphql";
+import { Box, Skeleton, Stack } from "@mui/material";
+import { Character } from "../../__generated__/graphql";
 import CardCharacter from "./CardCharacter";
 
 type ContainerCardsProps = {
-  characters: Characters;
+  characters: Character[];
+  loading: boolean;
 };
 
-const CardsContainer = ({ characters }: ContainerCardsProps) => {
-  const allCharacters = characters?.results;
+const CardsContainer = ({ characters, loading }: ContainerCardsProps) => {
+  console.log(characters);
   return (
     <Box className="cards-container">
-      {allCharacters?.map((char) => (
-        <CardCharacter character={char!} key={char?.name} />
-      ))}
+      <Box className="cards">
+        {loading ? (
+          <Stack spacing={1}>
+            <Skeleton
+              variant="rectangular"
+              width={240}
+              height={480}
+              animation="wave"
+            />
+            <Skeleton
+              variant="rectangular"
+              width={240}
+              height={480}
+              animation="wave"
+            />
+            <Skeleton
+              variant="rectangular"
+              width={240}
+              height={480}
+              animation="wave"
+            />
+            n{" "}
+            <Skeleton
+              variant="rectangular"
+              width={240}
+              height={480}
+              animation="wave"
+            />
+            <Skeleton
+              variant="rectangular"
+              width={240}
+              height={480}
+              animation="wave"
+            />
+          </Stack>
+        ) : (
+          characters?.map((char) => (
+            <CardCharacter character={char!} key={char?.id} />
+          ))
+        )}
+      </Box>
     </Box>
   );
 };

@@ -12,24 +12,39 @@
   }
 
   .cards-container{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 30px;
-    .card{
-      margin: 20px;
-      width: 240px;
-      background-color: #334756;
-      color: #fff;
-      &__name{
-        font-size: 0.90rem;
-        text-transform: uppercase;
-      }
-      &__species, &__location{
-        font-size: 0.90rem;
-      }
-      &__status{
-        margin-top: 20px;
+    .cards{
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      padding: 10px 30px 30px;
+      .card{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        margin: 20px;
+        width: 240px;
+        background-color: #334756;
+        color: #fff;
+        &__name{
+          font-size: 0.90rem;
+          text-transform: uppercase;
+        }
+        &__species, &__location{
+          font-size: 0.90rem;
+        }
+        &__status{
+          font-size: 0.90rem;
+        }
+        &__status--circle{
+          font-size: 0.60rem;
+          margin-right:5px;
+        }
+        &__action{
+          display: flex;
+          justify-content: center;
+        }
       }
     }
   }
+
+  

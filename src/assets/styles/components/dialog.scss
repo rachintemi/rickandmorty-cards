@@ -1,0 +1,25 @@
+.dialog{
+  .MuiDialog-paper{
+    background-color: #334756;
+    color: #fff;
+
+  }
+  &__title{
+    font-size: 0.90rem;
+    text-transform: uppercase;
+  }
+  &__info{
+    font-size: 0.70rem;
+  }
+  &__status{
+    font-size: 1rem;
+  }
+  &__status--circle{
+    font-size: 0.60rem;
+    margin-right:5px;
+  }
+
+  button{
+    font-size: 1rem;
+  }
+}

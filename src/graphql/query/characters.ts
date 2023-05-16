@@ -18,6 +18,9 @@ export const GET_CHARACTERS = gql`
         location {
           name
           dimension
+          residents {
+            name
+          }
         }
         name
         origin {
