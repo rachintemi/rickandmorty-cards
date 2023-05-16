@@ -8,7 +8,6 @@ type ContainerCardsProps = {
 };
 
 const CardsContainer = ({ characters, loading }: ContainerCardsProps) => {
-  console.log(characters);
   return (
     <Box className="cards-container">
       <Box className="cards">
